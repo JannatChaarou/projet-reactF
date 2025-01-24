@@ -36,12 +36,12 @@ body {
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease-in-out;
-  animation: fadeIn 1s ease-out;
   position: absolute;
   left:50%;
   top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.1);
+ 
 }
 
 /* Input Styles */
@@ -49,31 +49,46 @@ body {
   padding: 15px;
   margin: 20px 0; /* Unified margins */
   margin-top: 65px;
-  border: 2px solid #ff5252;
-  border-radius: 5px;
+  border: 2px solid #ccc;
+  border-radius: 25px; /* Enhanced border-radius for a rounded look */
   width: 100%; /* Responsive inputs */
   font-size: 16px;
-  background-color:#ffffff;
+  background-image: linear-gradient(45deg, #ff7b7b, #ff5252); 
   color: #ffffff;
-  transition: border 0.3s ease;
-  
+  transition: all 0.3s ease; /* Smooth transition for border and shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow to create depth */
 }
 
+/* Focus state for the input */
 .auth-container input:focus {
- /*border-color: #ffffff;*/
-  outline: none;
- 
+  border: 2px solid #ff5252; /* Focus border color */
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 8px rgba(255, 82, 82, 0.6); /* Glow effect on focus */
+  background-image: linear-gradient(45deg, #ff5252, #ff7b7b); /* Slightly darker gradient on focus */
 }
+
+
+.auth-container input:focus {
+  outline: none;
+}
+
+.auth-container input::placeholder {
+  color: #fff;
+  font-style: italic;
+  font-size: 17px;
+  animation: placeholderAnimation 1s ease-in-out infinite; /* Infinite animation */
+}
+
 
 /* Button Styles */
 .auth-container button {
-  background-color: #ff5252;
+  background-color: white;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
   width: 300px;
   height: 55px;
-  color:white ;
-  border: none;
-  border-radius: 20px;
+  color: #ffa9a9;
+  border: 2px solid #ff5252; /* Adding border color for a more defined edge */
+  border-radius: 30px; /* Use a larger radius for a more rounded effect */
   padding: 10px 20px;
   cursor: pointer;
   font-weight: bold;
@@ -81,20 +96,20 @@ body {
   position: absolute;
   left: 75px; 
   top: 100%;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  outline: none; /* Remove outline to keep the button's appearance clean */
 }
 
+/* Hover effect with enhanced border-radius */
 .auth-container button:hover {
-  background-color: #cd3737 ;
-  transform: translateY(-5px);
-  color: #efefef;
-  
+  background-color: #ff5252; /* Change background color on hover */
+  color: white; /* Change text color */
+  transform: translateY(-5px); /* Slight lift effect */
+  border-radius: 50px; /* Change border-radius to create a more rounded effect on hover */
 }
 
-.auth-container button:focus {
-  outline: none;
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6);
-}
+
+
 
 /* Links */
 .auth-container .register-link {
@@ -376,3 +391,299 @@ li button {
   color: #202020;
 }
   
+
+
+/* General body styles to help center the container on the page */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* This will ensure it starts from the top */
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+
+
+
+/* General container for the todo list */
+/* General container for the todo list */
+.todo-container {
+  width: 100%;
+  max-width: 2000px;
+  padding: 20px;
+  margin-top: 100px !important;
+  margin-bottom: 30px; /* Add !important if necessary */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+
+
+/* Keep the rest of your existing styles */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading of the todo list */
+.todo-header {
+  text-align: center;
+  font-size: 3rem;
+  color: #ff8686; /* Main color */
+  margin-bottom: 30px;
+  animation: slideIn 0.8s ease-out; /* Animation for header */
+}
+
+/* Slide-in animation for the header */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Form container for task input and add/update button */
+.todo-form {
+  display: flex;
+  width: 1450px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  animation: slideIn 0.8s ease-out; /* Animation for form */
+}
+
+/* Base styling for the input field */
+.todo-input {
+  width: calc(1455px - 120px);
+  padding: 12px;
+  margin-left: 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px; /* Rounded corners for a modern look */
+  outline: none;
+  transition: all 0.4s ease; /* Smooth transition for all properties */
+  background-image: linear-gradient(45deg, #ff9b9b, #ff7b7b); /* Gradient background */
+  color: #232323; /* Text color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* On focus, input field will have a glowing effect */
+.todo-input:focus {
+  border-color: #ff8686; /* Slightly darker border when focused */
+  background-image: linear-gradient(45deg, #ff7b7b, #ff5252); /* Focused gradient change */
+  box-shadow: 0 0 10px rgba(255, 130, 130, 0.6); /* Glowing effect around the input */
+  transform: scale(1.02); /* Slightly scale up the input when focused */
+}
+
+/* Animated placeholder */
+.todo-input::placeholder {
+  color: #fff;
+  font-style: italic;
+  font-size: 20px;
+  animation: placeholderAnimation 1s ease-in-out infinite; /* Infinite animation */
+}
+
+/* Placeholder animation */
+@keyframes placeholderAnimation {
+  0% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px); /* Moves up slightly */
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+}
+
+.todo-btn {
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #ff8686; /* Main button color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.todo-btn:hover {
+  background-color: #ff7070; /* Lighter shade for hover effect */
+}
+/*.todo-table{
+  width: 1240px;
+}*/
+
+
+/* Styling for Todo Table */
+.todo-table {
+  width: 100%;
+}
+
+.todo-table td {
+  padding: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+  border-left: none;  /* Remove left border */
+  border-right: none; /* Remove right border */
+  border-bottom: 1px solid #ddd; /* Keep bottom border */
+  background-color: #fff; /* Initial background color */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for background color and transform */
+}
+
+/* Hover effect for rows (when the cursor is on a task) */
+.todo-table tr:hover td {
+  background-color: #ffefef; /* Change color when hovering over rows */
+  transform: scale(1.05); /* Slightly scale the row up on hover */
+ 
+}
+
+/* Alternate row colors */
+.todo-table tr:nth-child(even) {
+  background-color:   #fff; /* Lighter color for even rows */
+}
+
+/* Animation for table rows when they first appear */
+@keyframes fadeInTd {
+  from {
+    opacity: 0;
+    transform: scale(0.9); /* Start slightly smaller */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /* End at normal size */
+  }
+}
+
+.todo-table td {
+  animation: fadeInTd 0.6s ease-out; /* Apply the fade-in animation */
+}
+
+/* Style for the 'Mark as Done' button */
+.done-btn {
+  background-color: #ff8686;  /* Light red color for 'Mark as Done' */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+}
+
+.done-btn:hover {
+  background-color: #ff7070;  /* Darker red when hovered */
+  transform: scale(1.05);  /* Slight scale effect when hovered */
+}
+
+/* Style for the task selection checkbox */
+.todo-table input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* When the checkbox is checked, scale it slightly */
+.todo-table input[type="checkbox"]:checked {
+  transform: scale(1.2);
+  border: 2px solid #ff7070; /* Change border color when checked */
+}
+
+/* Button Styling */
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  font-size:1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  width: 129px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #ff8686; /* Lighter orange for edit */
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #f44336; /* Darker orange for hover */
+}
+
+.delete-btn {
+  background-color: #f44336; /* Red for delete */
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #e53935; /* Darker red on hover */
+}
+
+/* Clear All Button */
+.button-container {
+  display: flex; /* Align buttons horizontally */
+  justify-content: center;
+  gap: 10px; /* Add some space between buttons */
+  margin-top: 20px; /* Adjust top margin for spacing */
+}
+
+.clear-all-btn {
+  width: 190px;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #ff8686;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-all-btn:hover {
+  background-color: #ff7070;
+}
+
+
+.text{
+  color: #636363;
+}
+.category-management {
+  padding: 20px;
+}
+
+.category-selector {
+  margin-bottom: 20px;
+}
+
+.task-list {
+  margin-bottom: 20px;
+}
+
+
+.category-actions {
+  margin-top: 20px;
+}

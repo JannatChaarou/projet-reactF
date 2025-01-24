@@ -22,11 +22,16 @@ const Auth = () => {
 
   return (
     <div className="body-Auth">      
-        <img
-          src={logo}
-          alt="Logo"
-          style={{ width: '100px', height: '100px', borderRadius: '50%' }}
-        />
+       <img
+  src={logo}
+  alt="Logo"
+  style={{
+    width: '125px',
+    height: '125px',
+    borderRadius: '50%'
+  }}
+ 
+/>
       <h2 className='title-Auth'>Stay Organized, Achieve More: Your Tasks, Your Way!</h2>
       <div className="auth-container">
         <input
